@@ -1,0 +1,118 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border-radius: 12px;
+  padding: 12px;
+  -webkit-app-region: drag;
+}
+
+#toggle-btn,
+#bubble,
+#service-selector {
+  -webkit-app-region: no-drag;
+}
+
+#bubble {
+  margin-top: 8px;
+  font-size: 14px;
+  max-width: 240px;
+  text-align: center;
+}
+
+#service-selector {
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+#service-selector:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#service-selector option {
+  background: #2f2f2f;
+  color: white;
+}
+
+#transcription-area {
+  position: fixed;
+  bottom: 100px; /* Adjust this value based on your UI layout */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust width as needed */
+  max-height: 200px; /* Limit height */
+  overflow: hidden; /* Hide text that goes beyond max-height */
+  pointer-events: none; /* Allow clicks to pass through */
+  text-align: center;
+}
+
+.transcription-text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 18px;
+  white-space: nowrap;
+  opacity: 1;
+  animation: floatUpAndFade 5s ease-out forwards; /* Adjust duration and timing function */
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150px); /* Adjust vertical distance */
+    opacity: 0;
+  }
+}
+
+#notification-area {
+  position: fixed;
+  top: 20px; /* Position near the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust width as needed */
+  max-height: 150px; /* Limit height */
+  overflow: hidden; /* Hide notifications that go beyond max-height */
+  pointer-events: none; /* Allow clicks to pass through */
+  text-align: center;
+  z-index: 1000; /* Ensure notifications are on top */
+}
+
+.notification-message {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px; /* Space between notifications */
+  opacity: 1;
+  animation: fadeOut 3s ease-in forwards; /* Animation to fade out */
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} 
